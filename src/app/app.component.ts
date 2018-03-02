@@ -11,13 +11,25 @@ import { Component } from '@angular/core';
             </button>
             <a class="navbar-brand" href="#">Angular Animations</a>
             <div class="collapse navbar-collapse" id="main-nav">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item"> 
-                        <a class="nav-link">Home</a>
-                    </li>      
-                </ul>
-          </div>
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item"> 
+                  <a class="nav-link" routerLink="/animation-home" routerLinkActive="active">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/animation-basics" routerLinkActive="active">Basics</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/animation-contained" routerLinkActive="active">Contained</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/animation-advanced" routerLinkActive="active">Advanced</a>
+                </li>
+              </ul>
+            </div>
     </nav>
+    <div class="page">
+      <router-outlet></router-outlet>
+    </div>
 `,
   styles: [``]
 })
