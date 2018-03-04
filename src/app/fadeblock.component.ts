@@ -15,14 +15,21 @@ import { fadeAnimation } from './animations';
                 height: 300px;
                 border-radius: 4px;
                 margin: 5rem;
-                opacity: 1;
+                opacity: 0;
             }
         `
   ],
   animations: [
     trigger('changeState', [
       transition('void => *', [
-        useAnimation(fadeAnimation)
+        useAnimation(fadeAnimation, {
+          params: {
+            delay: '1000ms',
+            from: 1,
+            to: 0,
+            time: '2s'
+          }
+        })
       ])
     ])
   ]

@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
+import { trigger, transition } from '@angular/animations';
+import { slideAnimation } from './animations';
 
 @Component({
   selector: 'app-root',
@@ -26,11 +28,23 @@ import { Component } from '@angular/core';
                 </li>
               </ul>
             </div>
-    </nav>
-    <div class="page">
-      <router-outlet></router-outlet>
-    </div>
+  </nav>
+  <div class="page" [@routerAnimations]="prepareRouteTransition(outlet)">
+    <router-outlet #outlet="outlet"></router-outlet>
+  </div>
 `,
-  styles: [``]
+  styles: [``],
+  encapsulation: ViewEncapsulation.None,
+  animations: [
+    trigger('routerAnimations', [
+      transition('* => *', slideAnimation)
+    ])
+  ]
 })
-export class AppComponent { }
+
+export class AppComponent {
+  prepareRouteTransition(outlet) {
+    const animation = outlet.activatedRouteData['animation'] || {};
+    return animation['value'] || null;
+  }
+}
