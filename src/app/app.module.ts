@@ -12,6 +12,7 @@ import { HomeComponent } from './routes/home.component';
 import { BasicComponent } from './routes/basic.component';
 import { ContainedComponent } from './routes/contained.component';
 import { AdvancedComponent } from './routes/advanced.component';
+import { NotFoundComponent } from './routes/notfound.component';
 
 const animationRoutes: Routes = [
   {
@@ -59,6 +60,10 @@ const animationRoutes: Routes = [
         value: 'home',
       }
     }
+  },
+  {
+    path: '**',
+    component: NotFoundComponent
   }
 ];
 

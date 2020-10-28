@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { trigger, state, style, animate, transition, useAnimation } from '@angular/animations';
 import { fadeAnimation } from './animations';
 
@@ -35,4 +35,6 @@ import { fadeAnimation } from './animations';
   ]
 })
 
-export class FadeBlockComponent { }
+export class FadeBlockComponent {
+  @Input() currentState;
+}
